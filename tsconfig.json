@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
-    "moduleResolution": "node",
-    "outDir": "./dist",
-    "noEmitOnError": true,
-    "emitDecoratorMetadata": true,
+    "target" : "es5",
+    "moduleResolution": "Node",
+    "lib": ["es2016","dom"],
+    "outDir" : "lib",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "declaration" : true,
     "experimentalDecorators": true,
-    "noImplicitAny": true,
-    "declaration": true
+    "emitDecoratorMetadata": true,
   },
   "include": [
-    "lib/**/*"
+    "src/**/*",
+    "test/**/*"
   ]
 }
