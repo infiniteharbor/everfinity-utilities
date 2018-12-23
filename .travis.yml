@@ -20,7 +20,7 @@ jobs:
         - git remote add origin https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/infinity-utilities.git
         - git push --set-upstream origin master
         - git remote -v
-        - git checkout origin master
+        - git checkout master
         - git status
         - npm run release
     - stage: deploy npm
@@ -29,7 +29,7 @@ jobs:
         
 
 stages:
-  - build & test
+  #- build & test
   - name: bump version
     if: branch = master
   - name: deploy npm
