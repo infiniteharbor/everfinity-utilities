@@ -1,0 +1,20 @@
+language: node_js
+sudo: false
+node_js:
+  - "stable"
+cache:
+  directories:
+  - node_modules
+jobs:
+  include:
+    - stage: install 
+      script: npm install
+    - stage: build
+      script: npm run build
+    - stage: test
+      script: npm run test
+    - if: branch = master
+    - stage: bump version
+      script: npm run release
+    - stage: deploy npm
+      script: skip
