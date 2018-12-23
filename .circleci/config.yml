@@ -39,7 +39,8 @@ jobs:
           
       - add_ssh_keys:
           fingerprints:
-          - "83:e0:2c:fe:b2:50:3f:91:cc:ef:25:01:ec:74:0f:25" 
+          - "3d:1f:f3:8e:11:55:bb:7b:52:e2:e0:07:75:15:76:2e" 
+
       - run: git config user.email "infinite.harbor@gmail.com"
       - run: git config user.name "Deployment Bot"
       - run: 
