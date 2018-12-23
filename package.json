@@ -1,6 +1,6 @@
 {
   "name": "infinity-utilities",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Custom Utilities, Decorators and Classes that are useful in any NodeJS application.",
   "author": "Infinite Harbor Team <infinite.harbor@gmail.com>",
   "homepage": "https://github.com/infiniteharbor/ifinity-utilities",
