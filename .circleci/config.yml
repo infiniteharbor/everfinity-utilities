@@ -36,6 +36,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - run: git config user.email "infinite.harbor@gmail.com"
+      - run: git config user.name "Deployment Bot"
       - run: 
           name: Create New Release Version
           command: npm run release
