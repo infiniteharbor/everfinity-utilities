@@ -17,8 +17,9 @@ jobs:
         - git config user.email "infinite.harbor@gmail.com"
         - git config user.name "Deployment Bot"
         - git remote add origin-deploy https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/infinity-utilities.git
+        - git push --set-upstream origin-deploy master
+        - git status
         - npm run release
-        #- git push --quiet --set-upstream origin-deploy master
     - stage: deploy npm
       script: 
         - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
