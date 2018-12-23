@@ -21,6 +21,7 @@ jobs:
         - git push --set-upstream origin master
         - git checkout master
         - git status
+        - npm run gen-docs
         - npm run release
     - stage: deploy npm
       script: 
