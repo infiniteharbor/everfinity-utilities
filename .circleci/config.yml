@@ -38,7 +38,7 @@ jobs:
           at: ~/repo
       - run: 
           name: Create New Release Version
-          command: npm release
+          command: npm run release
       - run:
           name: Authenticate with Registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
@@ -48,7 +48,7 @@ jobs:
             
 workflows:
   version: 2
-  test-deploy:
+  master-deploy:
     jobs:
       - build-test
       #     filters:
