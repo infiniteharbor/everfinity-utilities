@@ -18,6 +18,8 @@ jobs:
         - git config user.name "Deployment Bot"
         - git remote add origin-deploy https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/infinity-utilities.git
         - git push --set-upstream origin-deploy master
+        - git remote -v
+        - get checkout origin-deploy master
         - git status
         - npm run release
     - stage: deploy npm
