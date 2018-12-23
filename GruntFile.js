@@ -7,7 +7,7 @@ grunt.initConfig({
       files: ['package.json'],
       updateConfigs: [],
       commit: true,
-      commitMessage: 'Release v%VERSION%',
+      commitMessage: 'Release v%VERSION%  [ci skip]',
       commitFiles: ['package.json'],
       createTag: true,
       tagName: 'v%VERSION%',

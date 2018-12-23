@@ -19,17 +19,17 @@ jobs:
         - git remote rm origin
         - git remote add origin https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/infinity-utilities.git
         - git push --set-upstream origin master
-        - git remote -v
         - git checkout master
         - git status
         - npm run release
     - stage: deploy npm
       script: 
+        - npm install
+        - npm run build
         - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-        
-
+        - npm publish        
 stages:
-  #- build & test
+  - build & test
   - name: bump version
     if: branch = master
   - name: deploy npm
