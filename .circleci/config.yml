@@ -1,9 +1,62 @@
-commands:
-  sayhello:
-    description: "A very simple command for demonstration purposes"
-    parameters:
-      to:
-        type: string
-        default: "Hello World"
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:8.9.1
+
+jobs:
+  build-test:
+    <<: *defaults  
     steps:
-      - run: echo << parameters.to >>
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+	  # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+      - run: npm build
+      - run:
+          name: Run Tests
+          command: npm test
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: 
+          name: Create New Release Version
+          command: npm release
+      - run:
+          name: Authenticate with Registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish Package
+          command: npm publish
+            
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - build-test
+      #     filters:
+      #       tags:
+      #         only: /^v.*/
+      - deploy:
+          requires:
+            - build-test
+          filters:
+            branches:
+              only: master
