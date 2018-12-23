@@ -7,29 +7,25 @@ cache:
   - node_modules
 jobs:
   include:
-    - stage: install 
-      script: npm install
-    - stage: build
-      script: npm run build
-    - stage: test
-      script: npm run test
+    - stage: build & test
+      script: 
+        - npm install
+        - npm run build
+        - npm run test
     - stage: bump version
       script: 
-        - npm run release
         - git config user.email "infinite.harbor@gmail.com"
         - git config user.name "Deployment Bot"
         - git remote add origin-deploy https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/infinity-utilities.git
-        - git push --quiet --set-upstream origin-deploy master
+        - npm run release
+        #- git push --quiet --set-upstream origin-deploy master
     - stage: deploy npm
       script: 
         - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-        - ls 
-        - cat ~/.npmrc
+        
 
 stages:
-  - install
-  - build
-  - test
+  - build & test
   - name: bump version
     if: branch = master
   - name: deploy npm
