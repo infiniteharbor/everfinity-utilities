@@ -43,6 +43,7 @@ jobs:
 
       - run: git config user.email "infinite.harbor@gmail.com"
       - run: git config user.name "Deployment Bot"
+      - run: echo $'VerifyHostKeyDNS yes\nStrictHostKeyChecking no\n' >> ~/.ssh/config
       - run: 
           name: Create New Release Version
           command: npm run release
