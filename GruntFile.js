@@ -13,7 +13,7 @@ grunt.initConfig({
       tagName: 'v%VERSION%',
       tagMessage: 'Version %VERSION%',
       push: true,
-      pushTo: 'origin-deploy',
+      pushTo: 'origin',
       gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
       globalReplace: false,
       prereleaseName: false,
