@@ -28,7 +28,7 @@
     "watch-ts": "tsc -w",
     "watch-test": "nodemon ./lib/test/index.js",
     "release": "grunt bump",
-    "gen-docs": "typedoc --out ./docs ./src",
+    "gen-docs": "typedoc --out ./docs ./src & cp ./.nojekyll ./docs",
     "copy": "cp package.json ./lib/ && cp README.md ./lib/"
   },
   "dependencies": {
