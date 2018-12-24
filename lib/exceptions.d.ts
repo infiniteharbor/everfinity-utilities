@@ -1,28 +1,48 @@
-export declare class ArithmeticException extends Error {
+export declare class Throwable extends Error {
+    constructor(message: any, name: any);
 }
-export declare class ArrayIndexOutOfBoundException extends Error {
+export declare class ArithmeticException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class ClassNotFoundException extends Error {
+export declare class ArrayIndexOutOfBoundException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class FileNotFoundException extends Error {
+export declare class ClassNotFoundException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class IOException extends Error {
+export declare class FileNotFoundException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class InterruptedException extends Error {
+export declare class IOException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class NoSuchFieldException extends Error {
+export declare class InterruptedException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class NoSuchMethodException extends Error {
+export declare class NoSuchFieldException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class NullPointerException extends Error {
+export declare class NoSuchMethodException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class NumberFormatException extends Error {
+export declare class NullPointerException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class RuntimeException extends Error {
+export declare class NumberFormatException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class StringIndexOutOfBoundsException extends Error {
+export declare class RuntimeException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class AssertionException extends Error {
+export declare class StringIndexOutOfBoundsException extends Throwable {
+    constructor(message: any, name?: string);
 }
-export declare class IllegalArgumentException extends Error {
+export declare class AssertionException extends Throwable {
+    constructor(message: any, name?: string);
+}
+export declare class IllegalArgumentException extends Throwable {
+    constructor(message: any, name?: string);
+}
+export declare class ValidationException extends Throwable {
+    constructor(message: any, name?: string);
 }

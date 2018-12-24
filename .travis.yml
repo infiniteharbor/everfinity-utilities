@@ -27,7 +27,7 @@ jobs:
         - npm install
         - npm run build
         - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-        - npm publish --access=public    
+        - npm publish ./lib --access public   
 stages:
   - build & test
   - name: bump version
