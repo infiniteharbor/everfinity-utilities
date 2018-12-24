@@ -7,30 +7,43 @@ cache:
   - node_modules
 jobs:
   include:
-    - stage: build & test
+    - stage: test
       script: 
         - npm install
         - npm run build
         - npm run test
-    - stage: bump version
+    - stage: compile
+      script:
+        - npm install
+        - npm run build
+        - npm run gen-docs
+        - git config user.email "infinite.harbor@gmail.com"
+        - git config user.name "Compiler Bot"
+        - git remote rm origin
+        - git remote add origin https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/everfinity-utilities.git
+        - git push --set-upstream origin master
+        - git checkout master
+        - git add .
+        - git commit -m "Automated Build [skip ci]"
+    - stage: release
       script: 
         - git config user.email "infinite.harbor@gmail.com"
         - git config user.name "Deployment Bot"
         - git remote rm origin
-        - git remote add origin https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/infinity-utilities.git
+        - git remote add origin https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/everfinity-utilities.git
         - git push --set-upstream origin master
         - git checkout master
-        - npm run gen-docs
         - npm run release
-    - stage: deploy npm
+    - stage: publish
       script: 
         - npm install
         - npm run build
         - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
         - npm publish ./lib --access public   
 stages:
-  - build & test
-  - name: bump version
+  - test
+  - compile
+  - name: release
     if: branch = master
-  - name: deploy npm
+  - name: publish
     if: branch = master
