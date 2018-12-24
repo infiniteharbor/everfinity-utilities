@@ -1,10 +1,6 @@
 {
   "name": "@everfinity/utilities",
-<<<<<<< HEAD
-  "version": "0.0.19",
-=======
-  "version": "0.0.20",
->>>>>>> 4aee5a6c13bf1d293ebcf59cc13c7d2cc33deed8
+  "version": "0.0.21",
   "description": "Custom Utilities, Decorators and Classes that are useful in any NodeJS application.",
   "author": "Infinite Harbor Team <infinite.harbor@gmail.com>",
   "homepage": "https://github.com/infiniteharbor/ifinity-utilities",
@@ -32,7 +28,7 @@
     "watch-ts": "tsc -w",
     "watch-test": "nodemon ./lib/test/index.js",
     "release": "grunt bump",
-    "gen-docs": "typedoc --out ./docs ./src",
+    "gen-docs": "typedoc --out ./docs ./src & cp ./.nojekyll ./docs",
     "copy": "cp package.json ./lib/ && cp README.md ./lib/"
   },
   "dependencies": {
