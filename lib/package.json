@@ -1,6 +1,10 @@
 {
   "name": "@everfinity/utilities",
+<<<<<<< HEAD
   "version": "0.0.19",
+=======
+  "version": "0.0.20",
+>>>>>>> 4aee5a6c13bf1d293ebcf59cc13c7d2cc33deed8
   "description": "Custom Utilities, Decorators and Classes that are useful in any NodeJS application.",
   "author": "Infinite Harbor Team <infinite.harbor@gmail.com>",
   "homepage": "https://github.com/infiniteharbor/ifinity-utilities",
