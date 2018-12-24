@@ -8,9 +8,9 @@ export default class Assert {
   }
 
 
-  static assertInstanceOf<T>(t: T, clazz: any): T {
-    if( !(t instanceof clazz) ){
-      throw new AssertionException("InstanceOf Assertion Failed!")
+  static assertTypeOf<T>(t: T, expected: string): T {
+    if( !( typeof t === expected) ){
+      throw new AssertionException(`Woah, I didn't expect a ${typeof t}, it should be ${expected} `);
     } else {
       return t;
     }
