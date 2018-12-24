@@ -25,6 +25,7 @@ jobs:
         - git checkout master
         - git add .
         - git commit -m "Automated Build [skip ci]"
+        - git push
     - stage: release
       script: 
         - git config user.email "infinite.harbor@gmail.com"
