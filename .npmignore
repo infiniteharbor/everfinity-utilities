@@ -5,3 +5,9 @@ node_modules
 dist
 out
 src/**/*
+docs
+tsconfig.json
+*.lock
+GruntFile.js
+.travis.yml
+.gitignore
