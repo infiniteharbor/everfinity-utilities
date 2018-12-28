@@ -53,7 +53,10 @@ export class AssertionException extends Throwable { constructor(message, name = 
 //IllegalArgumentException
 //Thrown to indicate that a method has been passed an illegal or inappropriate arguement
 export class IllegalArgumentException extends Throwable { constructor(message, name = "IllegalArgumentException") { super(message, name); } }
-//IllegalArgumentException
+//IllegalStateException
+//Thrown to indicate that a method has been used at an illegal or inappropriate time
+export class IllegalStateException extends Throwable { constructor(message, name = "IllegalStateException") { super(message, name); } }
+//ValidationException
 //Thrown to indicate that a method has been passed an illegal or inappropriate arguement
 export class ValidationException extends Throwable { constructor(message, name = "ValidationException") { super(message, name); } }
 
