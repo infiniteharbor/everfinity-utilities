@@ -14,6 +14,7 @@ jobs:
         - npm run test
     - stage: compile
       script:
+        - npm install -g codecov
         - npm install
         - npm run build
         - npm run gen-docs
@@ -26,6 +27,7 @@ jobs:
         - git add .
         - git commit -m "Automated Build [skip ci]"
         - git push
+      after_success: codecov
     - stage: release
       script: 
         - git config user.email "infinite.harbor@gmail.com"
