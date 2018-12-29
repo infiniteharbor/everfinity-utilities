@@ -1,7 +1,7 @@
 
 [![NPM](https://nodei.co/npm/@everfinity/utilities.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/@everfinity/utilities)
 
-[![Build Status](https://travis-ci.com/infiniteharbor/infinity-utilities.svg?branch=master)](https://travis-ci.com/infiniteharbor/infinity-utilities)
+[![Build Status](https://travis-ci.com/infiniteharbor/everfinity-utilities.svg?branch=master)](https://travis-ci.com/infiniteharbor/everfinity-utilities)
 
 # Everfinity Utilities 
 ### Custom Utilities, Decorators and Classes that are useful in any NodeJS application.
