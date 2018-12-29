@@ -5,10 +5,8 @@ import { expect, should, assert } from "chai";
 
 import Objects from "../src/objects";
 
-
-
 describe('Objects.format', () => {
-  it('should return xxx', () => {
+  it('should return a formated string', () => {
     const f1 = "abc";
     const f2 = "def";
     const f3 = "ghi";
@@ -18,5 +16,27 @@ describe('Objects.format', () => {
     console.log("test string", test);
     console.log("result should be", result);
     expect(test).to.equal(result);
+  });
+});
+
+
+describe('Objects.populate', () => {
+  it('should return a popluated object', () => {
+
+    class Test {
+      public a: string;
+      public b: string;
+      public c: string;
+    }
+
+    let obj: Test = new Test();
+
+    console.log(Object.keys(obj));
+    console.log(Object.getOwnPropertyNames(obj));
+    console.log(Object.getOwnPropertySymbols(obj));
+
+
+    console.log(JSON.stringify(obj));
+
   });
 });

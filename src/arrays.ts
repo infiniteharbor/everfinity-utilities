@@ -1,11 +1,8 @@
 export default class Arrays {
-
-
-  public static stream<T>(array: T[], start?:number, end?: number) {
-
+  public static isArray(test: any) {
+    return Array.isArray(test);
   }
 }
-
 
 export class Repeater<T> {
   public hasNext: boolean;

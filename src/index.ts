@@ -18,6 +18,23 @@
 export type LinkedList<E> = E & { next: LinkedList<E> };
 
 /**
+ * Standard vector type using the xyz cordinates.
+ * 
+ * @param <X> X Cordinate Value
+ * @param <Y> Y Cordinate Value
+ * @param <Z> Z Cordinate Value 
+ */
+export type Vector<X, Y, Z> = { x: X; y: Y; z: Z; };
+
+/**
+ * A basic listed array.
+ * 
+ * @param <T> Type used in array;
+ */
+export type List<T> = T[];
+
+
+/**
  * Just like in Java you can extend Iterator to loop through anything you want. 
  * 
  * @param <T> Type of element you want to loop through.
@@ -50,3 +67,17 @@ export abstract class Iterator<T> {
   }
 }
 
+/**
+ * Generic interface for an processing any single item
+ */
+export interface ItemProcessor<IN, OUT> {
+  process(i: IN): OUT;
+}
+
+
+/**
+ * Generic interface for a left and right pair 
+ */
+export interface Pair<T> {
+  left: T; right: T;
+}
