@@ -27,7 +27,8 @@
     "watch-ts": "tsc -w",
     "test": "mocha --recursive --require ts-node/register --colors \"./test/**/*.ts\"",
     "version:up": "grunt bump-only",
-    "version:docs": "typedoc --out ./docs ./src && cp ./.nojekyll ./docs",
+    "version:docs-gen": "typedoc --out ./docs ./src && cp ./.nojekyll ./docs",
+    "version:docs-add": "git add . && git commit - \"Generate Docs [skip ci]\"",
     "version:release": "grunt bump-commit",
     "copy": "cp package.json ./lib/ && cp README.md ./lib/"
   },
