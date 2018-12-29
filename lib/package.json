@@ -1,6 +1,6 @@
 {
   "name": "@everfinity/utilities",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "Custom Utilities, Decorators and Classes that are useful in any NodeJS application.",
   "author": "Infinite Harbor Team <infinite.harbor@gmail.com>",
   "homepage": "https://github.com/infiniteharbor/ifinity-utilities",
@@ -23,12 +23,12 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc & npm run copy",
-    "test": "mocha --recursive --require ts-node/register --colors \"./test/**/*.ts\"",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn watch-ts\" \"yarn watch-test-index\" \"yarn watch-test-test\"",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn watch-ts\" \"yarn test\"",
     "watch-ts": "tsc -w",
-    "watch-test": "nodemon ./lib/test/index.js",
-    "release": "grunt bump",
-    "gen-docs": "typedoc --out ./docs ./src & cp ./.nojekyll ./docs",
+    "test": "mocha --recursive --require ts-node/register --colors \"./test/**/*.ts\"",
+    "version:up": "grunt bump-only",
+    "version:docs": "typedoc --out ./docs ./src && cp ./.nojekyll ./docs",
+    "version:release": "grunt bump-commit",
     "copy": "cp package.json ./lib/ && cp README.md ./lib/"
   },
   "dependencies": {
