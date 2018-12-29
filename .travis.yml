@@ -38,7 +38,7 @@ jobs:
         - npm run version:up
         - npm run version:docs
         - git add .
-        - git commit -m "Generate Docs [skip ci]""
+        - git commit -m "Generate Docs [skip ci]"
         - npm run version:release
       after_success: codecov
     - stage: publish
