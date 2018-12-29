@@ -44,8 +44,14 @@ jobs:
 stages:
   - test
   - name: compile
-    if: branch = master
+    if: branch = master AND \
+        env(GITHUBOAUTH) IS present AND \
+        type IN (push)
   - name: release
-    if: branch = master
+    if: branch = master AND \
+        env(GITHUBOAUTH) IS present AND \
+        type IN (push)
   - name: publish
-    if: branch = master
+    if: branch = master AND \
+        env(NPM_TOKEN) IS present AND \
+        type IN (push)
