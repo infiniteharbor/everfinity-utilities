@@ -33,13 +33,15 @@ export default class Option<T> {
     return this.value != null;
   }
 
-  public ifPresent(consumer: (p1: any) => void) {
+  public ifPresent(consumer: (p: any) => void) {
     if (this.value != null) {
-      (target => (typeof target === 'function') ? target(this.value) : (<any>target).accept(this.value))(consumer);
+      const x = (target => (typeof target === 'function') 
+        ? target(this.value) 
+        : (<any>target).accept(this.value))(consumer);
     }
   }
 
-  public filter(predicate : (p1: any) => boolean) : Option<T> {
+  public filter(predicate : (p: any) => boolean) : Option<T> {
     Assert.assertNotNull(predicate);
     
     if(!this.isPresent()) { 

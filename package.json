@@ -23,7 +23,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc & npm run copy",
-    "test": "mocha  --require ts-node/register ./test/**/*",
+    "test": "mocha --recursive --require ts-node/register --colors \"./test/**/*.ts\"",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn watch-ts\" \"yarn watch-test-index\" \"yarn watch-test-test\"",
     "watch-ts": "tsc -w",
     "watch-test": "nodemon ./lib/test/index.js",
