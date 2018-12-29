@@ -14,11 +14,8 @@ jobs:
         - npm run test
     - stage: compile
       script:
-        - npm install -g codecov
-        - npm install -g typedoc
         - npm install
         - npm run build
-        - npm run gen-docs
         - git status
         - git config user.email "infinite.harbor@gmail.com"
         - git config user.name "Compiler Bot"
@@ -29,16 +26,19 @@ jobs:
         - git add .
         - git commit -m "Automated Build [skip ci]"
         - git push
-      after_success: codecov
     - stage: release
       script: 
+        - npm install -g codecov
         - git config user.email "infinite.harbor@gmail.com"
         - git config user.name "Deployment Bot"
         - git remote rm origin
         - git remote add origin https://infiniteharbor:${GITHUBOAUTH}@github.com/infiniteharbor/everfinity-utilities.git
         - git push --set-upstream origin master
         - git checkout master
-        - npm run release
+        - npm run version:up
+        - npm run version:docs
+        - npm run version:release
+      after_success: codecov
     - stage: publish
       script: 
         - npm install
@@ -49,9 +49,6 @@ stages:
   - test
   - name: compile
     if: branch = master
-        # AND \
-        # env(GITHUBOAUTH) IS present AND \
-        # type IN (push)
   - name: release
     if: branch = master
   - name: publish
