@@ -36,8 +36,9 @@ jobs:
         - git push --set-upstream origin master
         - git checkout master
         - npm run version:up
-        - npm run version:docs-gen
-        - npm run version:docs-add
+        - npm run version:docs
+        - git add .
+        - git commit -m "Generate Docs [skip ci]""
         - npm run version:release
       after_success: codecov
     - stage: publish
