@@ -1,6 +1,6 @@
 {
   "name": "@everfinity/utilities",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "description": "Custom Utilities, Decorators and Classes that are useful in any NodeJS application.",
   "author": "Infinite Harbor Team <infinite.harbor@gmail.com>",
   "homepage": "https://github.com/infiniteharbor/ifinity-utilities",
@@ -27,8 +27,7 @@
     "watch-ts": "tsc -w",
     "test": "mocha --recursive --require ts-node/register --colors \"./test/**/*.ts\"",
     "version:up": "grunt bump-only",
-    "version:docs-gen": "typedoc --out ./docs ./src && cp ./.nojekyll ./docs",
-    "version:docs-add": "git add . && git commit - \"Generate Docs [skip ci]\"",
+    "version:docs": "typedoc --out ./docs ./src && cp ./.nojekyll ./docs",
     "version:release": "grunt bump-commit",
     "copy": "cp package.json ./lib/ && cp README.md ./lib/"
   },
