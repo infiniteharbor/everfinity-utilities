@@ -15,9 +15,11 @@ jobs:
     - stage: compile
       script:
         - npm install -g codecov
+        - npm install -g typedoc
         - npm install
         - npm run build
         - npm run gen-docs
+        - git status
         - git config user.email "infinite.harbor@gmail.com"
         - git config user.name "Compiler Bot"
         - git remote rm origin
